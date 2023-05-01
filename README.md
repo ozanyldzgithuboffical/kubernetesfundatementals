@@ -3,7 +3,7 @@ This repository serves for understanding concepts and features of kubernetes env
 - Please check out each branch to reach the context of Kubernetes.
 - You can use powershell on windows. When Kubernetes is installed on docker, it will be available from all command lines.
 
-## Installing Kubernetes Dashboard
+## Installing Kubernetes Dashboard via Kubernetes Docker
 - The Dashboard UI is not deployed by default. To deploy it, run the following command:
 ```
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml
@@ -47,4 +47,30 @@ kubectl proxy
 
 - Enter the token you copied.
 
+## Running Kubernetes Dashboard with MiniKube Cluster on Windows:
+- Install minikube via Powershell by running the command:
+```
+New-Item -Path 'c:\' -Name 'minikube' -ItemType Directory -Force
+Invoke-WebRequest -OutFile 'c:\minikube\minikube.exe' -Uri 'https://github.com/kubernetes/minikube/releases/latest/download/minikube-windows-amd64.exe' -UseBasicParsing
+```
+- Add the minikube.exe binary to your PATH.
+** Make sure to run PowerShell as Administrator.
+```
+$oldPath = [Environment]::GetEnvironmentVariable('Path', [EnvironmentVariableTarget]::Machine)
+if ($oldPath.Split(';') -inotcontains 'C:\minikube'){ `
+  [Environment]::SetEnvironmentVariable('Path', $('{0};C:\minikube' -f $oldPath), [EnvironmentVariableTarget]::Machine) `
+}
+```
+- From a terminal with administrator access (but not logged in as root), run your minikube cluster
+```
+minikube start
+```
+- Interact with your cluster:
+```
+kubectl get po -A
+```
+- Running the Kubernetes dashboard as you do not need to deal with token process anymore:
+```
+minikube dashboard
+```
 That's all :)
