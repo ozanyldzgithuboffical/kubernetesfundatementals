@@ -73,4 +73,8 @@ kubectl get po -A
 ```
 minikube dashboard
 ```
+## View your MiniKube Config
+```
+kubectl config view
+```
 That's all :)
