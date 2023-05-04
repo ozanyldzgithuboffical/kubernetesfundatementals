@@ -29,7 +29,10 @@ kubectl apply -f config/
 ```
 
 ## Labels
+### Equity Based Requirement
 - You can use the pod spec in /label folder.
 ```
  kubectl get pods -l environment=preprod
 ```
+### Set Based Requirement
+
