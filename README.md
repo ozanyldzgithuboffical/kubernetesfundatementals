@@ -21,3 +21,8 @@ kubectl get deployments
 ```
 kubectl apply -f nginx_pod.yaml
 ```
+
+### Declerative Object Configuration Example
+```
+kubectl apply -f config/
+```
