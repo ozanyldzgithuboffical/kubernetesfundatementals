@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-labeldemo
+  labels:
+    environment: preprod
+    app: nginxpreprod
+spec:
+  containers:
+  - name: nginxpreprod
+    image: nginx:1.14.2
+    ports:
+    - containerPort: 80
