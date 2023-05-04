@@ -23,6 +23,13 @@ kubectl apply -f nginx_pod.yaml
 ```
 
 ### Declerative Object Configuration Example
+- You can use the pod spec in /config folder.
 ```
 kubectl apply -f config/
+```
+
+## Labels
+- You can use the pod spec in /label folder.
+```
+ kubectl get pods -l environment=preprod
 ```
