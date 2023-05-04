@@ -30,7 +30,7 @@ kubectl apply -f config/
 
 ## Labels
 ### Equity Based Requirement
-- You can use the pod spec in /label folder.
+- You can use the pod spec equity_based in /label folder.
 ```
  kubectl get pods -l environment=preprod
 ```
@@ -38,5 +38,18 @@ kubectl apply -f config/
 - You can use the pod spec set_based_pod in /label folder.
 ```
 kubectl get pods -l 'environment in (prod)'
+```
+## Namespaces
+- You can set your name space
+```
+kubectl run nginx --image=nginx --namespace=<insert-namespace-name-here>
+```
+- List all pods with their namespaces
+```
+kubectl get pods --all-namespaces
+```
+- List default namespaces
+```
+kubectl get namespace
 ```
 
