@@ -35,4 +35,8 @@ kubectl apply -f config/
  kubectl get pods -l environment=preprod
 ```
 ### Set Based Requirement
+- You can use the pod spec set_based_pod in /label folder.
+```
+kubectl get pods -l 'environment in (prod)'
+```
 
