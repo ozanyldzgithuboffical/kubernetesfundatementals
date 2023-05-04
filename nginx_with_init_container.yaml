@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginxwithinit
+spec:
+  initContainers:
+  - name: sleepy
+    image: alpine
+    command: ['sleep', '60']	
+  containers:
+  - name: nginxwithinit
+    image: nginx:1.14.2
+    ports:
+    - containerPort: 80
