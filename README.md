@@ -1,12 +1,27 @@
 - This repository serves for understanding concepts and features of kubernetes environment.
-#  Tech Talk Agenda
-## Kubernetes Cluster Architecture - 1 tech talk
-### Workloads - 4 tech talks
-### Services , Load Balancing and Networking - 4 tech talks
-### Storage - 4 tech talks
-### Configuration - 3 tech talks
-### Security - 5 tech talks
-### Policies - 1 tech talk 
-### Scheduling, Preemption and Eviction - 4 tech talks
-### Cluster Administration - 5 tech talks
-### Tasks - 5 tech talks
+## Creating Replica Set
+```
+kubectl create -f replicasetwithnginx.yaml
+```
+## Querying the Replica Set
+```
+kubectl get replicaset my-replicaset
+```
+## Querying the replicated Pods
+```
+kubectl get pods 
+```
+## Changing the Replication Number of Pods Manually
+- Change the replicas property in yaml file.
+- Then run:
+```
+kubectl replace -f <yaml-file>
+```
+## Rescale the Replica Set with Imperative-Argument Command
+```
+kubectl scale --replicas=5 -f .\replicasetwithnginx.yaml
+```
+- You can check the replicaset and pods again.
+
+## Deamon Set
+
