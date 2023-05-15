@@ -16,7 +16,7 @@ spec:
 ```
 - Run the yaml file.
 ```
-kubectl apply -f $yaml_file_name
+kubectl create -f <yaml_file_name>.yaml
 ```
 - List the available pods with their namespaces
 ```
@@ -24,7 +24,7 @@ kubectl get pods --all-namespaces
 ```
 - Describe the pod to see pod status.
 ```
-kubectl describe pod $pod_name
+kubectl describe pod <pod_name>
 ```
 ## Container Probes - Liveness
 - Create your pod with liveness probe.
@@ -53,7 +53,7 @@ spec:
  ```
  - Run the yaml file.
 ```
-kubectl apply -f $yaml_file_name
+kubectl create -f <yaml_file_name>.yaml
 ```
  - Describe the pod after 30 seconds to see liveness prob container created.
  - After describing, wait for 35 seconds by describing again to see the status of the pod which will be restarted.
@@ -77,7 +77,7 @@ spec:
 ```
  - Run the yaml file.
 ```
-kubectl apply -f $yaml_file_name
+kubectl create -f <yaml_file_name>.yaml
 ```
 - Describe the pod after 1 minute so that it will be in sleep mode.
      
@@ -99,6 +99,6 @@ spec:
       ```
 - Run the yaml file.
 ```
-kubectl apply -f $yaml_file_name
+kubectl create -f <yaml_file_name>.yaml
 ```
 - It will create a single container with template. You can increase the size of the containers by replicating.
