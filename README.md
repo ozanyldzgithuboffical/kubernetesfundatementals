@@ -42,19 +42,13 @@ kubectl label node <node-name> <label-key>=<label-value>
 # Deamon Set
 ## Creating Fluentd Elastic Search Deamon Set
 ```
-kubectl create -f fluentddeamon.yaml
+kubectl create -f fluentddaemon.yaml
 ```
 - If you want to set a custom namespace rather than default namespace you can add namespace under metadata in yaml file and you can first create the namespace before creating the deamon set.
-- Optional:
-```
-kubectl create ns <namespace-name>
-```
-```
-kubectl create -f fluentd_version2.yaml
-```
 ## Checking the Deamon Set
 ```
 kubectl get daemonset -n <namespace-name>
+kubectl get ds -n <namspace-name>
 ```
 ## Checking the Pods under the namespace on which node the deamon set is running:
 ```
@@ -64,3 +58,14 @@ kubectl get pods -n <namespace-name> -o wide
 ```
 kubectl describe daemonset -n <namespace>
 ```
+## Adding Label to Node 
+- You need to have a node selector to be defined in your yaml spec file.
+```
+kubectl label node <node-name> <label-key>=<label-value>
+```
+
+## Tainting Node 
+```
+kubectl taint nodes <node-name> <label-key>=<label-value>:<taint-type-name>
+```
+
