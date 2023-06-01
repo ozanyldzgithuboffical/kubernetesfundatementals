@@ -6,11 +6,19 @@ kubectl create -f replicasetwithnginx.yaml
 ```
 ## Querying the Replica Set
 ```
-kubectl get replicaset my-replicaset
+kubectl get replicaset my-replicaset -n <namespace-name>
 ```
 ## Querying the replicated Pods
 ```
-kubectl get pods 
+kubectl get pods -n <namespace-name> -o wide
+```
+## Querying the replicated Pods with Label Filtering Equality Based Filters
+```
+kubectl get pods -n <namespace-name> -o wide -l <label-key> =/!= <label-value>
+```
+## Querying the replicated Pods with Label Filtering Set Based Filters
+```
+kubectl get pods -n <namespace-name> -o wide -l '<label-key> in/not in (label-value/s)'
 ```
 ## Changing the Replication Number of Pods Manually
 - Change the replicas property in yaml file.
@@ -22,12 +30,19 @@ kubectl replace -f <yaml-file>
 ```
 kubectl scale --replicas=5 -f .\replicasetwithnginx.yaml
 ```
-- You can check the replicaset and pods again.
+## Listing Available Nodes
+```
+kubectl get nodes
+```
+## Adding Label to your node
+```
+kubectl label node <node-name> <label-key>=<label-value>
+```
 
 # Deamon Set
 ## Creating Fluentd Elastic Search Deamon Set
 ```
-kubectl create -f fluentd_version2.yaml
+kubectl create -f fluentddeamon.yaml
 ```
 - If you want to set a custom namespace rather than default namespace you can add namespace under metadata in yaml file and you can first create the namespace before creating the deamon set.
 - Optional:
