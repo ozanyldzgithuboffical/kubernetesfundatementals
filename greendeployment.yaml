@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: green-deployment
+spec:
+  selector:
+    matchLabels:
+      app: green-deployment
+      tier: backend
+      track: stable
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: green-deployment
+        tier: backend
+        track: stable
+    spec:
+      containers:
+        - name: green-deployment
+          image: nginx:1.25
+          ports:
+            - name: http
+              containerPort: 80
